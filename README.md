@@ -2,6 +2,14 @@
 
 Repo to track progress for [https://quii.gitbook.io/learn-go-with-tests](https://quii.gitbook.io/learn-go-with-tests)
 
+```sh
+# run tests
+go test
+
+# run test with benchmark
+go test -bench=.
+```
+
 ## Important information
 
 See this [link](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/hello-world#go-doc) for information on local documentation.
