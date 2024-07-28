@@ -14,25 +14,23 @@ func TestPerimiter(t *testing.T) {
 
 func TestArea(t *testing.T) {
 
-	t.Run("rectangle", func(t *testing.T) {
+	areaTests := []struct {
+		name    string
+		shape   Shape
+		hasArea float64
+	}{
+		{shape: Rectangle{Width: 12, Height: 6}, hasArea: 72},
+		{shape: Circle{Radius: 10}, hasArea: 314.1592653589793},
+		{shape: Triangle{Base: 12, Height: 6}, hasArea: 36.0},
+	}
 
-		rectangle := Rectangle{5.0, 10.0}
-		got := rectangle.Area()
-		want := 50.0
+	for _, tt := range areaTests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := tt.shape.Area()
 
-		if got != want {
-			t.Errorf("got %.2f, want %.2f", got, want)
-		}
-	})
-
-	t.Run("circle", func(t *testing.T) {
-
-		circle := Circle{10.0}
-		got := circle.Area()
-		want := 314.1592653589793
-
-		if got != want {
-			t.Errorf("got %.2f, want %.2f", got, want)
-		}
-	})
+			if got != tt.hasArea {
+				t.Errorf("%#v got %.2f, want %.2f", tt.shape, got, tt.hasArea)
+			}
+		})
+	}
 }
