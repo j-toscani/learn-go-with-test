@@ -1,11 +1,10 @@
 package main
 
 import (
-	"log"
-	dependencyinjection "main/dependency-injection"
-	"net/http"
+	mocking "main/mocking"
+	"os"
 )
 
 func main() {
-	log.Fatal(http.ListenAndServe(":5001", http.HandlerFunc(dependencyinjection.MyGreeterHandler)))
+	mocking.Countdown(os.Stdout)
 }
