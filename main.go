@@ -8,8 +8,8 @@ import (
 
 type DefaultSleeper struct {}
 
-func (d *DefaultSleeper) Sleep(duration time.Duration){
-	time.Sleep(duration)
+func (d *DefaultSleeper) Sleep(){
+	time.Sleep(1*time.Second)
 }
 
 func main() {
